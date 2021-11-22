@@ -12,11 +12,13 @@ main()
 	/* current line length */
 	/* maximum length seen so far */
 	max = 0;
-	while ((len = getline(line, MAXLINE)) > 0)
+	while ((len = getline(line, MAXLINE)) > 0) {
 		if (len > max) {
 			max = len;
 			copy(longest, line);
-		}
+		}	
+		printf("length: %d", len);
+	}
 	if(max>0) /*therewasaline*/ printf("%s", longest);
 	/* current input line */
 	return 0; }
