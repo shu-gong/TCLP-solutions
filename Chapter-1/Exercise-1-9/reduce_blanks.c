@@ -2,16 +2,20 @@
 /* count lines in input */
 main()
 {
-	int c, nblank;
+	int c, prev;
 	prev = 0;
-	while ((c = getchar()) != EOF)
+	while ((c = getchar()) != EOF) {
 		if (c == ' ') {
-			prev = c;
-			c = getchar();
 			if (prev == c) {
-				;
+				;	
 			} 
-			else putchar(c);
-		} else putchar(c);
-	printf("%d\n", nblank);
+			else {
+				putchar(c);
+			}
+		} 
+		else {
+			putchar(c);
+		}
+		prev = c;
+	}
 }
