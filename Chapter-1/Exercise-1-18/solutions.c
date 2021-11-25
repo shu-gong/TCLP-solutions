@@ -1,5 +1,6 @@
 #include <stdio.h>
 #define MAXLINE 10000
+/*beautiful solutions*/
 
 char line[MAXLINE+1];
 int get_line(void);
