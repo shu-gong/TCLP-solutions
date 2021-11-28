@@ -1,35 +1,46 @@
 #include<stdio.h>
 /* Write a function reverse(s) that reverses the character string s. Use it to write a program that reverse its input a line at a time.*/ #define MAXLEN 1000
-void reverse(char from[], char to[]);
+void reverse(char from[], char to[], int len);
+int read_line(char s[], int lim);
 main() {
-	int c;
+	int c, len;
 
-	while((c = getchar()) != EOF){
 	char line[MAXLEN];
 	char reverse_line[MAXLEN];
 
-	reverse(line, reverse_line);
-	} }
+	while((len = read_line(line, MAXLEN)) > 0){
 
-void reverse(char from[], char to[]){
-
-	int i, j;
-	j = 0;
-
-	for (i = 0; from[i] != '\0'; i++);
-
-	while (i != 0)	{
-		from[i] = to[j];
-		++j;
-		--i;
-	}
-
-	to[i] = '\0';
-	i = 0;	
-	while(to[i] != '\0'){
-		putchar(to[i]);
-		++i;
-	}
+		reverse(line, reverse_line, len);
+	} 
 }
 
-void read_line()
+void reverse(char from[], char to[], int idx){
+
+	int  j;
+	j = 0;
+
+	while (idx != 0)	{
+		if (from[idx] != '\0' && from[idx] != '\n') {
+			to[j] = from[idx];
+			++j;
+		}
+		--idx;
+	}
+
+	to[j+1] = '\0';
+	printf("%s", to);
+}
+
+int read_line(char s[], int lim){
+	int c, i;
+	for (i = 0; i < lim - 1 && (c=getchar()) != EOF && c != '\n'; ++i)
+		s[i] = c;
+	if (c == '\n') {
+		s[i] = c;
+		++i;
+	}
+	s[i] = '\0';
+	printf("%s", s);
+	return i;
+}
+
