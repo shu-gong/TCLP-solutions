@@ -1,8 +1,5 @@
 #include<stdio.h>
-/* Write a function reverse(s) that reverses the character string s. Use it to write a program that reverse its input a line at a time.*/
-
-#define MAXLEN 1000
-
+/* Write a function reverse(s) that reverses the character string s. Use it to write a program that reverse its input a line at a time.*/ #define MAXLEN 1000
 void reverse(char from[], char to[]);
 main() {
 	int c;
@@ -12,8 +9,7 @@ main() {
 	char reverse_line[MAXLEN];
 
 	reverse(line, reverse_line);
-	}
-}
+	} }
 
 void reverse(char from[], char to[]){
 
@@ -36,3 +32,4 @@ void reverse(char from[], char to[]){
 	}
 }
 
+void read_line()
