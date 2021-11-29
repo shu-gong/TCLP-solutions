@@ -23,7 +23,7 @@ void reverse(char from[], char to[], int idx){
 
 	while (idx != -1)	{
 		if (from[idx] == '\0' ) {
-			to[idx] = from[idx];
+			to[idx] = '\0';
 		}
 		else {
 			to[j] = from[idx];
