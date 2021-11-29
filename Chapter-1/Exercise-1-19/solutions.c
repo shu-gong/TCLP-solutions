@@ -2,6 +2,7 @@
 /* Write a funciton "reverse" that reveres the character string "s". Use it to write a program that reverses its input a line at a time.*/
 #define MAXLEN 81
 
+void reverse(char s[]);
 main() {
 	int c, i;
 	char line[MAXLEN];
@@ -34,8 +35,6 @@ void reverse(char s[]) {
 			line[i] = s[n];
 			n++;
 		}
-
 	printf("%s\n", line);
 	}
-
 }
