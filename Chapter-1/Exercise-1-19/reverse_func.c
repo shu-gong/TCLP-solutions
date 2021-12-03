@@ -1,6 +1,7 @@
 #include<stdio.h>
 /* Write a function reverse(s) that reverses the character string s. Use it to write a program that reverse its input a line at a time.*/ 
 #define MAXLEN 1000
+
 void reverse(char from[], char to[], int len);
 int read_line(char s[], int lim);
 
