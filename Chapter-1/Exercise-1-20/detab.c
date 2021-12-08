@@ -2,24 +2,31 @@
 /* Write a program detab that replaces tabs in the input with the proper number of blanks to space to the next tab stop. Assume a fixed set of tab stops, say every n columns. Should n be a variable or a symbolic parameter?*/
 #define MAXNTAB 4
 #define MAXLINE 1000
-int get_line(char from[], char to[]);
+void detab_line(char from[], char to[]);
 
 main() 
 {
 	char from[MAXLINE];
 	char to[MAXLINE];
-	int c;
+	int i, c;
 	while((c = getchar()) != EOF) {
-		get_line(from, to);
+
+		detab_line(from, to);
 	}
 
 }
 
-int get_line(char from[], char to[]) {
-	int i;	
+void detab_line(char from[], char to[]) {
+	int i,j,m,n;	
 	for(i=0; from[i] != '\0'; ++i) {
+		to[n] = from[m];
 		if(from[i] = '\t') {
-				
+			for(j=0; j<4; ++j) {
+				to[n] = ' ';
+				++n;
+			}
+			++m;
+			++n;
 		}
 	}
 
