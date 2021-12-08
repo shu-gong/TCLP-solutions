@@ -9,11 +9,11 @@ main()
 	char from[MAXLINE];
 	char to[MAXLINE];
 	int i, c;
-	while((c = getchar()) != EOF) {
-
-		detab_line(from, to);
+	while( i != MAXLINE && (c = getchar()) != EOF) {
+		from[i] = c;
+		++i;		
 	}
-
+	detab_line(from, to);
 }
 
 void detab_line(char from[], char to[]) {
@@ -29,5 +29,7 @@ void detab_line(char from[], char to[]) {
 			++n;
 		}
 	}
-
+	for(i=0; to[i] != '\0'; ++i) {
+		putchar(to[i]);
+	}
 }
