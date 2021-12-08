@@ -30,7 +30,18 @@ int get_line(char s[], lim) {
 }
 
 void entab(char to[], char from[]) {
-	int i,j,m,n;
+	int i,j,m,n,b;
 	for(m=0; from[m]!='\0';++m);
-	i = m 
+	for(n=0; 4*n <= m && 4*n+4>m; ++n);
+	
+	b = m - 4*n;	
+
+	for(i=0; i<n; ++i) {
+		putchar('\t');
+	}
+	for(j=0; j<b; ++j) {
+		putchar(' ');
+	}
 }
+
+
