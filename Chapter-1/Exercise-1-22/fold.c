@@ -4,7 +4,6 @@
 #define MAXLINE 1000
 #define FOLDLEN 20
 int get_line(char s[], lim);
-
 main() {
 	char line[MAXLINE];
 	char nline[MAXLINE];
