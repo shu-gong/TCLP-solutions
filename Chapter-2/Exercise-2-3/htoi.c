@@ -9,7 +9,6 @@ main() {
 	char line[MAXLINE];
 	int hex_int;
 	int len;
-	printf("%x\n", htoi("0xFA9C"));
 	while((len=get_line(line, MAXLINE)) > 0) {
 		hex_int = htoi(line, len);
 		printf("%x\n", hex_int);
@@ -20,16 +19,16 @@ int htoi(char s[], int l) {
 	int i, j, hex=0, temp=1;
 	if(s[0] == '0' && (s[1]=='x' || s[1]=='X')){
 		for(i=2; s[i]!='\0'; ++i) {
-			for(j=l-i; j>0; --j) {
+			for(j=l-i; j>1; --j) {
 				temp = temp * 16;
 			}
 			if(s[i]>='0' && s[i]<='9') {
 				s[i] = s[i] - '0';
 			}
-			else if(s[i]>='a' && s[i]<='z') {
+			else if(s[i]>='a' && s[i]<='f') {
 				s[i] = s[i] - 'a' + 10;
 			}
-			else if(s[i]>='A' && s[i]<='Z') {
+			else if(s[i]>='A' && s[i]<='F') {
 				s[i] = s[i] - 'A' + 10;
 			}
 			hex += temp * s[i];
@@ -38,16 +37,16 @@ int htoi(char s[], int l) {
 	}
 	else {
 		for(i=0; s[i]!='\0'; ++i) {
-			for(j=0; j<i; ++j) {
+			for(j=l-i; j>1; --j) {
 				temp = temp * 16;
 			}
 			if(s[i]>='0' && s[i]<='9') {
 				s[i] = s[i] - '0';
 			}
-			else if(s[i]>='a' && s[i]<='z') {
+			else if(s[i]>='a' && s[i]<='f') {
 				s[i] = s[i] - 'a' + 10;
 			}
-			else if(s[i]>='A' && s[i]<='Z') {
+			else if(s[i]>='A' && s[i]<='F') {
 				s[i] = s[i] - 'A' + 10;
 			}
 			hex += temp * s[i];
