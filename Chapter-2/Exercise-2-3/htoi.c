@@ -19,38 +19,28 @@ int htoi(char s[], int l) {
 	int i, j, hex=0, temp=1;
 	if(s[0] == '0' && (s[1]=='x' || s[1]=='X')){
 		for(i=2; s[i]!='\0'; ++i) {
-			for(j=l-i; j>1; --j) {
-				temp = temp * 16;
-			}
 			if(s[i]>='0' && s[i]<='9') {
-				s[i] = s[i] - '0';
+				hex = hex * 16 + s[i] - '0';
 			}
 			else if(s[i]>='a' && s[i]<='f') {
-				s[i] = s[i] - 'a' + 10;
+				hex = hex * 16 + s[i] - 'a' + 10;
 			}
 			else if(s[i]>='A' && s[i]<='F') {
-				s[i] = s[i] - 'A' + 10;
+				hex = hex * 16 + s[i] - 'A' + 10;
 			}
-			hex += temp * s[i];
-			temp = 1;
 		}
 	}
 	else {
 		for(i=0; s[i]!='\0'; ++i) {
-			for(j=l-i; j>1; --j) {
-				temp = temp * 16;
-			}
 			if(s[i]>='0' && s[i]<='9') {
-				s[i] = s[i] - '0';
+				hex = hex * 16 + s[i] - '0';
 			}
 			else if(s[i]>='a' && s[i]<='f') {
-				s[i] = s[i] - 'a' + 10;
+				hex = hex * 16 + s[i] - 'a' + 10;
 			}
 			else if(s[i]>='A' && s[i]<='F') {
-				s[i] = s[i] - 'A' + 10;
+				hex = hex * 16 + s[i] - 'A' + 10;
 			}
-			hex += temp * s[i];
-			temp = 1;
 		}
 	}
 	return hex;
