@@ -36,8 +36,8 @@ int htoi(char s[]) {
 		}
 	}
 	else {
-		for(i=2; s[i]!='\0'; ++i) {
-			for(j=0; j<i-2; ++j) {
+		for(i=0; s[i]!='\0'; ++i) {
+			for(j=0; j<i; ++j) {
 				temp = temp * 16;
 			}
 			if(s[i]>='0' && s[i]<='9') {
