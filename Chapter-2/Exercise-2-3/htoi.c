@@ -16,10 +16,24 @@ main() {
 }
 
 int htoi(char s[]) {
-	int i;
+	int i, j, hex=0, temp;
 	if(s[0] == '0' && (s[1]=='x' || s[1]=='X')){
-				
+		for(i=2; s[i]!='\0'; ++i) {
+			for(j=0; j<i; ++j) {
+				temp = temp * 16;
+			}
+			hex = temp * (int) s[i];
+		}
 	}
+	else {
+		for(i=0; s[i]!='\0'; ++i) {
+			for(j=0; j<i; ++j) {
+				temp = temp * 16;
+			}
+			hex = temp * (int) s[i];
+		}
+	}
+	return hex;
 }
 
 int get_line(char s[], lim) {
