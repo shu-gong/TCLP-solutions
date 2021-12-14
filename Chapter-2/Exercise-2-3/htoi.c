@@ -11,12 +11,12 @@ main() {
 	int len;
 	while((len=get_line(line, MAXLINE)) > 0) {
 		hex_int = htoi(line);
-		printf("%x", hex_int);
+		printf("%x\n", hex_int);
 	}
 }
 
 int htoi(char s[]) {
-	int i, j, hex=0, temp=0;
+	int i, j, hex=0, temp=1;
 	if(s[0] == '0' && (s[1]=='x' || s[1]=='X')){
 		for(i=2; s[i]!='\0'; ++i) {
 			for(j=0; j<i-2; ++j) {
@@ -32,12 +32,25 @@ int htoi(char s[]) {
 				s[i] = s[i] - 'A' + 10;
 			}
 			hex += temp * s[i];
-			temp = 0;
+			temp = 1;
 		}
 	}
 	else {
-		for(i=0; s[i]!='\0'; ++i) {
-			hex = 16 * hex + (int) s[i];
+		for(i=2; s[i]!='\0'; ++i) {
+			for(j=0; j<i-2; ++j) {
+				temp = temp * 16;
+			}
+			if(s[i]>='0' && s[i]<='9') {
+				s[i] = s[i] - '0';
+			}
+			else if(s[i]>='a' && s[i]<='z') {
+				s[i] = s[i] - 'a' + 10;
+			}
+			else if(s[i]>='A' && s[i]<='Z') {
+				s[i] = s[i] - 'A' + 10;
+			}
+			hex += temp * s[i];
+			temp = 1;
 		}
 	}
 	return hex;
