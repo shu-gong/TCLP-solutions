@@ -2,24 +2,25 @@
 /* Write a function htoi(s), which converts a string of hexadecimal digits(including an optional 0x or 0X) into its equibalent integer value. The allowable digits are 0 through 9, a through f, and A through F*/
 #define MAXLINE 1000
 
-int htoi(char s[]);
+int htoi(char s[], int l);
 int get_line(char s[], lim);
 
 main() {
 	char line[MAXLINE];
 	int hex_int;
 	int len;
+	printf("%x\n", htoi("0xFA9C"));
 	while((len=get_line(line, MAXLINE)) > 0) {
-		hex_int = htoi(line);
+		hex_int = htoi(line, len);
 		printf("%x\n", hex_int);
 	}
 }
 
-int htoi(char s[]) {
+int htoi(char s[], int l) {
 	int i, j, hex=0, temp=1;
 	if(s[0] == '0' && (s[1]=='x' || s[1]=='X')){
 		for(i=2; s[i]!='\0'; ++i) {
-			for(j=0; j<i-2; ++j) {
+			for(j=l-i; j>0; --j) {
 				temp = temp * 16;
 			}
 			if(s[i]>='0' && s[i]<='9') {
