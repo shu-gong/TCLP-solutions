@@ -16,15 +16,23 @@ main() {
 }
 
 int htoi(char s[]) {
-	int i, j, hex=0, temp;
+	int i, j, hex=0, temp=0;
 	if(s[0] == '0' && (s[1]=='x' || s[1]=='X')){
 		for(i=2; s[i]!='\0'; ++i) {
-			for(j=0; j<i; ++j) {
+			for(j=0; j<i-2; ++j) {
 				temp = temp * 16;
 			}
-			if(s[i]>'0' && s[i]<'9') {
+			if(s[i]>='0' && s[i]<='9') {
 				s[i] = s[i] - '0';
 			}
+			else if(s[i]>='a' && s[i]<='z') {
+				s[i] = s[i] - 'a' + 10;
+			}
+			else if(s[i]>='A' && s[i]<='Z') {
+				s[i] = s[i] - 'A' + 10;
+			}
+			hex += temp * s[i];
+			temp = 0;
 		}
 	}
 	else {
