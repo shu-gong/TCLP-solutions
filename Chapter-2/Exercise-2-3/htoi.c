@@ -11,7 +11,7 @@ main() {
 	int len;
 	while((len=get_line(line, MAXLINE)) > 0) {
 		hex_int = htoi(line);
-		printf("%d", hex_int);
+		printf("%x", hex_int);
 	}
 }
 
@@ -22,15 +22,14 @@ int htoi(char s[]) {
 			for(j=0; j<i; ++j) {
 				temp = temp * 16;
 			}
-			hex = temp * (int) s[i];
+			if(s[i]>'0' && s[i]<'9') {
+				s[i] = s[i] - '0';
+			}
 		}
 	}
 	else {
 		for(i=0; s[i]!='\0'; ++i) {
-			for(j=0; j<i; ++j) {
-				temp = temp * 16;
-			}
-			hex = temp * (int) s[i];
+			hex = 16 * hex + (int) s[i];
 		}
 	}
 	return hex;
