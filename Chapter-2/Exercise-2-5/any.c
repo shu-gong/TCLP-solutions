@@ -6,7 +6,7 @@ int any(char s1[], char s2[]);
 main() {
 	int c;	
 
-	char test1[] = "123ab1cabc123bcaa";
+	char test1[] = "123ab12c";
 	char test2[] = "abc";
 
 	c = any(test1, test2);
@@ -30,4 +30,5 @@ int any(char s1[], char s2[]) {
 			}
 		}
 	}
+	return -1;
 }
