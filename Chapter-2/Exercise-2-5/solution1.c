@@ -1,3 +1,11 @@
+
+#include<stdio.h>
+/* NOTE: This solution is wrong*/
+
+int any(char s1[], char s2[]);
+main() {
+	
+}
 int any(char s1[], char s2[])
 {
 	int i, j;
