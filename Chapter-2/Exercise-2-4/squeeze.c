@@ -3,7 +3,7 @@
 void squeeze(char s1[], char s2[]);
 
 main() {
-	char test1[] = "aaabc123bcaa";
+	char test1[] = "aaabc123bcbacaab";
 	char test2[] = "abc";
 
 	squeeze(test1, test2);
@@ -18,11 +18,13 @@ void squeeze(char s1[], char s2[]) {
 				for(k=i; s1[k]!='\0'; ++k) {
 					s1[k] = s1[k+1];
 				}
+				j=0;
 			} 
-			else if (s1[i] != s2[j]) {
+			else {
 				++j;
 			}
 		}
+		j=0;
 		++i;
 	}
 }
