@@ -25,6 +25,7 @@ int any(char s1[], char s2[]) {
 				return i;
 			}
 			else {
+				j=0;
 				continue;
 			}
 		}
