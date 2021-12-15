@@ -18,6 +18,6 @@ void squeeze(char s1[], char s2[]) {
 				s1[k++] = s1[i];
 			}
 		}
+		s1[k] = '\0';
 	}
-	s1[k] = '\0';
 }
