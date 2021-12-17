@@ -9,5 +9,5 @@ main() {
 }
 
 unsigned rightrot(unsigned x, int n) {
-	return (x >> n) | (x << (8 - n));
+	return (x >> n) | ((x & (~(~0 << n))) << (8 - n));
 }
