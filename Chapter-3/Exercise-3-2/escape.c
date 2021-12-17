@@ -9,7 +9,8 @@ main() {
 	char test2[] = "a\\tb\\nd";
 	char new2[MAXLINE];
 	escape(test, new1);
-	printf("%s", new1);
+	reverse_escape(test2, new2);
+	printf("%s", new2);
 }
 
 void escape(char s[], char t[]) {
@@ -36,5 +37,27 @@ void escape(char s[], char t[]) {
 }
 
 void reverse_escape(char s[], char t[]) {
-
+	int i,j=0;
+	for(i=0; s[i] != '\0'; ++i) {
+		switch(s[i]) {
+			case '\\':
+				switch(s[i+1]) {
+					case 't': 
+						t[j] = '\t';
+						j++;
+						i+=2; 
+						break;
+					case 'n': 
+						t[j] = '\n'; 
+						j++;
+						i+=2; 
+						break;
+				}
+			default:
+				t[j] = s[i];
+				j++;
+				break;
+		}
+	}
+	t[j] = '\0';
 }
