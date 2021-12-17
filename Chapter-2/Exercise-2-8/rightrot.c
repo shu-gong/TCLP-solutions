@@ -3,11 +3,11 @@
 unsigned rightrot(unsigned x, int n);
 
 main() {
-	int a;
-	a = rightrot(45, 3);
+	unsigned a;
+	a = rightrot(45,3);
 	printf("%x", a);
 }
 
-unsigned rightrot(unsigned x, int n){
-	return x >> n | ((x & (~(~0 << n))) << (8 - n));
+unsigned rightrot(unsigned x, int n) {
+	return (x >> n) | (x << (8 - n));
 }
