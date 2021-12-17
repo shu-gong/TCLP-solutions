@@ -3,11 +3,12 @@
 main() {
 	int x = 5;
 	switch( x ) {
-		case 5:
+		case 0:
 			printf( "x is five!\n" );
-		case 2:
+		case 5:
 			printf( "x is two!\n" );
-			break;
+		case 7:
+			printf("hahahahah");
 		default:
 			printf( "I don't know about x\n" );
 	}
