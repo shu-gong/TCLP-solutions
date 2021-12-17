@@ -4,17 +4,33 @@ void escape(char s[], char t[]);
 void reverse_escape(char s[], char t[]);
 #define MAXLINE 1000
 main() {
-	char test[] = "a b c d	e";
+	char test[] = "a b c d	eabc	tdea";
 	char new1[MAXLINE]; 
 	char test2[] = "a\\tb\\nd";
 	char new2[MAXLINE];
-	printf("%s", test2);
+	escape(test, new1);
+	printf("%s", new1);
 }
 
 void escape(char s[], char t[]) {
-	
+	int i, j=0;
+	for(i=0; s[i] != '\0'; ++i) {
+		switch (s[i]) {
+			case '\t':
+				t[j+1] = 't';
+			case '\n':
+				t[j] = 'n';
+				t[j] = '\\';
+				t += 2;
+				break;
+			default:
+				t[j] = s[i];
+				++j;
+				break;
+		}
+	}
 }
 
 void reverse_escape(char s[], char t[]) {
-	
+
 }
