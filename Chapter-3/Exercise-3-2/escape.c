@@ -17,10 +17,13 @@ void escape(char s[], char t[]) {
 	for(i=0; s[i] != '\0'; ++i) {
 		switch (s[i]) {
 			case '\t':
-				t[j+1] = 't';
-			case '\n':
-				t[j] = 'n';
 				t[j] = '\\';
+				t[j+1] = 't';
+				t += 2;	
+				break;
+			case '\n':
+				t[j] = '\\';
+				t[j+1] = 'n';
 				t += 2;
 				break;
 			default:
@@ -29,6 +32,7 @@ void escape(char s[], char t[]) {
 				break;
 		}
 	}
+	t[j] = '\0';
 }
 
 void reverse_escape(char s[], char t[]) {
