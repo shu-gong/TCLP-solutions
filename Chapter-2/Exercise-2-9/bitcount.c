@@ -23,4 +23,16 @@ x-1          0X3F     00111111     flipping the seven last bits
 x &= x-1     0X00     00000000     zeroing the seven last bits
 
 x            0X00     00000000     x now has zero 1-bit*/
+int bitcount(unsigned x);
+main() {
+	printf("%d", bitcount(0x75));
+}
 
+int bitcount(unsigned x) {
+	int i = 0;
+	while(x != 0){
+		x &= (x-1);
+		++i;
+	}
+	return i;
+}
