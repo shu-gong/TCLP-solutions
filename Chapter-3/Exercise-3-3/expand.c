@@ -11,28 +11,30 @@ main() {
 }
 
 void expand(char s1[], char s2[]) {
-	int i,j,k,m,n;	
+	int i,j=0,k,m,n;	
 	char start, prev;
 	start = s1[0];
 	prev = s1[1];
 
-	for(i=2; s1[i] != '\0'; ++i) {
+	for(i=0; s1[i] != '\0'; ++i) {
 		if(s1[i] == '-') {
 			if(s1[i-1] >= 'a' && s1[i-1] <= 'z'&& s1[i+1] >= 'a' && s1[i+1] <= 'z') {
 				n = s1[i+1] - s1[i-1];
-				for(j=i, k=0; j<n; ++j, ++k) {
-					s2[j] = n+k;
+				printf("%c-%c=%d\n",s1[i-1],s1[i+1], n);
+				for(k=0; k<n; ++j, ++k) {
+					s2[j] = s1[i-1] + k;
 				}
 			}
 			else if (s1[i-1] >= 'a' && s1[i-1] <= 'z'&& s1[i+1] >= 'a' && s1[i+1] <= 'z') {
 				n = s1[i+1] - s1[i-1];
-				for(j=i, k=0; j<n; ++j, ++k) {
-					s2[j] = n+k;
+				for(k=0; k<n; ++j, ++k) {
+					s2[j] = s1[i-1]+k;
 				}
 			}
-			else {
-				s2[j] = s1[i];
-			}
+		}
+		else {
+			s2[j++] = s1[i];
 		}
 	}
+	s2[j] = '\0';
 }
