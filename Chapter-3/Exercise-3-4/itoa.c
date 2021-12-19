@@ -7,7 +7,7 @@ void itoa(char n, char s[]);
 void reverse(char s[]);
 
 main() {
-	char a = -127;
+	char a = -128;
 	char test[MAXLINE];
 	itoa(a,test);
 	printf("%s", test);
@@ -15,12 +15,12 @@ main() {
 
 void itoa(char n, char s[]) {
 	char i, sign;
-	if((sign = n) < 0)
+	if((sign = n) > 0)
 		n = -n;
 	i = 0;
 	do {
-		s[i++] = n % 10 + '0';
-	} while ((n /= 10) > 0);
+		s[i++] = '0' - n % 10 ;
+	} while ((n /= 10) < 0);
 	if (sign < 0)
 		s[i++] = '-';
 	s[i] = '\0';
