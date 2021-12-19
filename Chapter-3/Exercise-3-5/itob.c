@@ -4,11 +4,13 @@
 #define MAXLINE 1000
 void itob(int n, char s[], int b);
 void reverse(char s[]);
+void hex_conver(char s[]);
 main() {
+
 	int n;
 	n = 120;
 	char test[MAXLINE];
-	itob(n, test, 2);
+	itob(n, test, 16);
 	printf("%s", test);
 }
 
@@ -25,6 +27,9 @@ void itob(int n, char s[], int b) {
 		s[i++] = '-';
 	s[i] = '\0';
 	reverse(s);
+	if (b == 16){
+		hex_conver(s);
+	}
 }
 
 void reverse(char s[]) {
@@ -35,3 +40,13 @@ void reverse(char s[]) {
 		s[j] = temp;
 	}
 }
+
+void hex_conver(char s[]) {
+	int i;
+	for(i=0; s[i] != '\0'; i++) {
+		if (s[i] >= '10' && s[i] <= '15') {
+			s[i] = s[i] - '10' + 'a';
+		}
+	}
+}
+
