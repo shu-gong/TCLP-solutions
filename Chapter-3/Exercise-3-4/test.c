@@ -1,6 +1,6 @@
 #include<stdio.h>
 
 main() {
-	char a = 128;	
+	char a = -130;	
 	printf("%d", a);
 }
