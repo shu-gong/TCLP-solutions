@@ -1,6 +1,6 @@
 #include<stdio.h>
 
 main() {
-	
-	printf("%d", 1237/10);
+	char a = 128;	
+	printf("%d", a);
 }
