@@ -32,11 +32,14 @@ int get_line(char s[], int lim) {
 
 /* strindex: return index of t in s, -1 if none*/
 int strindex(char s[], char t[]) {
-	int i, j, k;
+	int i, j, k, m=0;
 
 	for (i = 0; s[i] != '\0'; i++) {
 		for (j=i, k=0; t[k]!='\0' && s[j]==t[k]; j++, k++);
-		if (k)
+		if (k > 0 && t[k] == '\0')
+			m = k;
 	}
+	if (m > 0) return m;
+	else return -1;
 }
 
