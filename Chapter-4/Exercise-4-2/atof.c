@@ -17,7 +17,7 @@ double atof(char s[]) {
 	double val, power, exponet;
 	int i, sign;
 
-	for (i = 0; isspcae(s[i]); i++);
+	for (i = 0; isspace(s[i]); i++);
 	sign = (s[i] == '-') ? -1 : 1;
 	if (s[i] == '+' || s[i] == '-')
 		i++;
@@ -30,7 +30,7 @@ double atof(char s[]) {
 		power *= 10;
 	}
 	if (s[i] == 'e')
-		i++
+		i++;
 	if (s[i++] == '+') {
 		for (exponet = 0; exponet < s[i]; exponet++) {
 			val = 10.0 * val;
