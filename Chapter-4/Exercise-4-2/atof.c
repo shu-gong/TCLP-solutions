@@ -3,13 +3,13 @@
 /* Extend atof to handle scientific notation of the form 123.45e-6 where a floating-point number may be followed by e or E and an optionally signed exponent.*/
 double atof(char s[]);
 main() {
-	char test1[] = "1.23";
-	char test2[] = "1.2e+3";
-	char test3[] = "1.3e-4";
+	char test1[] = "1234.23";
+	char test2[] = "1234.2e+3";
+	char test3[] = "1234.3e-3";
 	
-	printf("%f", atof(test1));
-	printf("%f", atof(test2));
-	printf("%f", atof(test3));
+	printf("%g\n", atof(test1));
+	printf("%g\n", atof(test2));
+	printf("%g\n", atof(test3));
 
 }
 
@@ -31,14 +31,15 @@ double atof(char s[]) {
 	}
 	if (s[i] == 'e')
 		i++;
-	if (s[i++] == '+') {
-		for (exponet = 0; exponet < s[i]; exponet++) {
+	if (s[i] == '+') {
+		i++;
+		for (exponet = 0; exponet < (s[i]-'0'); exponet++) {
 			val = 10.0 * val;
 		}
 	}
-	else if (s[i++] == '-') {
-		for (exponet = 0; exponet < s[i]; exponet++) {
-			val = 10.0 * val;
+	if (s[i] == '-') {
+		i++;
+		for (exponet = 0; exponet < (s[i]-'0'); exponet++) {
 			power *= 10;
 		}
 	}
