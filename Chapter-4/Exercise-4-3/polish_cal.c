@@ -38,8 +38,13 @@ main() {
 				push(pop() * pop());
 				break;
 			case '-':
-				op2 = pop();
-				push(pop() - op2);
+				if (isdigit(op2 = pop())) {
+						
+				}
+				else {
+					push()	
+				}
+					push(op1 - op2);
 				break;
 			case '/':
 				op2 = pop();
