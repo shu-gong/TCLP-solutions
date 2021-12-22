@@ -51,9 +51,10 @@ main() {
 			case '%':
 				op2 = pop();
 				if (op2 != 0.0)
-					push(pop() % op2);
+					push((double)((int)pop() % (int)op2));
 				else
 					printf("error: zero division\n");
+				break;
 			case '\n':
 				printf("\t%.8g\n", pop());
 				break;
