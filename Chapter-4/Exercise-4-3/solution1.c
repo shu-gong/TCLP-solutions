@@ -38,13 +38,8 @@ main() {
 				push(pop() * pop());
 				break;
 			case '-':
-				if (isdigit(op2 = pop())) {
-						
-				}
-				else {
-					push()	
-				}
-					push(op1 - op2);
+				op2 = pop();
+				push(pop() - op2);
 				break;
 			case '/':
 				op2 = pop();
@@ -95,9 +90,18 @@ int getop(char s[]) {
 
 	while ((s[0] = c = getch()) == ' ' || c == '\t');
 	s[1] = '\0';
-	if (!isdigit(c) && c != '.')
+	if (!isdigit(c) && c != '.' && c != '-')
 		return c;
 	i = 0;
+	if (c == '-') {
+		s[i] = c;
+		if (!isdigit(c = getch())) {
+			return '-';
+		}
+		else
+			s[++i] = c;
+	}
+
 	if (isdigit(c))
 		while (isdigit(s[++i] = c = getch()));
 	if (c == '.')
