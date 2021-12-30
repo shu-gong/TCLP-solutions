@@ -15,6 +15,7 @@ double pop(void);
 int getch(void);
 void ungetch(int);
 void print_top(void);
+void duplicate_top(void);
 
 int sp = 0;
 double val[MAXVAL];
@@ -59,6 +60,9 @@ main() {
 			case '?':
 				print_top();
 				break;
+			case '!':
+				duplicate_top();
+				break;	
 			case '\n':
 				printf("\t%.8g\n", pop());
 				break;
@@ -131,3 +135,12 @@ void print_top(void) {
 		printf("The stack is empty!\n");
 }
 
+void duplicate_top(void) {
+	double top;
+	if (sp > 0 && sp < MAXVAL) {
+		top = val[sp++];
+		push(top);
+	}
+	else
+		printf("error: empty or full, can't duplicate top");
+}
