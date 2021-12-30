@@ -17,6 +17,7 @@ void ungetch(int);
 char print_top(void);
 void duplicate_top(void);
 void swap_top_two(void);
+void clear_stack(void);
 
 int sp = 0;
 double val[MAXVAL];
@@ -63,6 +64,9 @@ main() {
 				break;	
 			case '=':
 				swap_top_two();
+				break;
+			case '|':
+				clear_stack();
 				break;
 			case '\n':
 				printf("\t %d \n", print_top());
@@ -146,4 +150,10 @@ void swap_top_two(void) {
 	top2 = pop();
 	push(top);
 	push(top2);
+}
+
+void clear_stack(void) {
+	while(sp!=0) {
+		pop();
+	}
 }
