@@ -14,7 +14,7 @@ void push (double);
 double pop(void);
 int getch(void);
 void ungetch(int);
-void print_top(void);
+char print_top(void);
 void duplicate_top(void);
 
 int sp = 0;
@@ -64,7 +64,7 @@ main() {
 				duplicate_top();
 				break;	
 			case '\n':
-				printf("\t%.8g\n", pop());
+				printf("\t %d \n", print_top());
 				break;
 			default:
 				printf("error: unknown command %s\n", s);
@@ -121,15 +121,12 @@ void ungetch(int c) {
 	else
 		buf[bufp++] = c;
 }
-
-void print_top(void) {
+char print_top(void) {
 	if (sp > 0)  {
 		/*这里查看的是val而不是buf原因在于：val储存的是stack中处理后的值，而buf储存所有输入的值*/
-		int a = sp - 1;
-		printf("Top of stack contains: %8g\n", val[a]);
-	/* 由于val的末尾没有\0 所以不能直接输出*/
-	//	printf("%s", val);
-		printf("current sp is %d\n", sp);
+		char top;
+		top =(int) val[sp-1];
+		return top; 
 	}
 	else
 		printf("The stack is empty!\n");
