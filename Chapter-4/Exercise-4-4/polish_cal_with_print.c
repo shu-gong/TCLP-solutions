@@ -119,9 +119,12 @@ void ungetch(int c) {
 }
 
 void print_top(void) {
-	if (sp > 0) 
+	if (sp > 0)  {
 		/*这里查看的是val而不是buf原因在于：val储存的是stack中处理后的值，而buf储存所有输入的值*/
 		printf("Top of stack contains: %8g\n", val[sp-1]);
+	/* 由于val的末尾没有\0 所以不能直接输出*/
+	//	printf("%s", val);
+	}
 	else
 		printf("The stack is empty!\n");
 }
