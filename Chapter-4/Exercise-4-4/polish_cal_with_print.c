@@ -14,6 +14,7 @@ void push (double);
 double pop(void);
 int getch(void);
 void ungetch(int);
+void print_top(void);
 
 int sp = 0;
 double val[MAXVAL];
@@ -38,13 +39,8 @@ main() {
 				push(pop() * pop());
 				break;
 			case '-':
-				if (isdigit(op2 = pop())) {
-						
-				}
-				else {
-					push()	
-				}
-					push(op1 - op2);
+				op2 = pop();
+				push(pop() - op2);
 				break;
 			case '/':
 				op2 = pop();
@@ -62,6 +58,9 @@ main() {
 				break;
 			case '\n':
 				printf("\t%.8g\n", pop());
+				break;
+			case '?':
+				print_top();
 				break;
 			default:
 				printf("error: unknown command %s\n", s);
