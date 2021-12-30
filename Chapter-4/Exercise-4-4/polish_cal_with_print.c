@@ -57,9 +57,6 @@ main() {
 				else
 					printf("error: zero division\n");
 				break;
-			case '?':
-				print_top();
-				break;
 			case '!':
 				duplicate_top();
 				break;	
