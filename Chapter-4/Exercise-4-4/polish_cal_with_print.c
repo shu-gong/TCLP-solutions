@@ -16,6 +16,7 @@ int getch(void);
 void ungetch(int);
 char print_top(void);
 void duplicate_top(void);
+void swap_top_two(void);
 
 int sp = 0;
 double val[MAXVAL];
@@ -131,10 +132,11 @@ char print_top(void) {
 
 void duplicate_top(void) {
 	double top;
-	if (sp > 0 && sp < MAXVAL) {
-		top = val[sp++];
-		push(top);
-	}
-	else
-		printf("error: empty or full, can't duplicate top");
+	top = pop();
+	push(top);
+	push(top);
+}
+
+void swap_top_two(void) {
+	double top;
 }
