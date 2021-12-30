@@ -61,6 +61,9 @@ main() {
 			case '!':
 				duplicate_top();
 				break;	
+			case '=':
+				swap_top_two();
+				break;
 			case '\n':
 				printf("\t %d \n", print_top());
 				break;
@@ -138,5 +141,9 @@ void duplicate_top(void) {
 }
 
 void swap_top_two(void) {
-	double top;
+	double top, top2;
+	top = pop();
+	top2 = pop();
+	push(top);
+	push(top2);
 }
