@@ -8,6 +8,7 @@
 #define NUMBER '0'
 #define MAXVAL 100
 #define BUFSIZE 100
+#define VAR 'A'
 
 int getop(char []);
 void push (double);
@@ -18,6 +19,7 @@ char print_top(void);
 void duplicate_top(void);
 void swap_top_two(void);
 void clear_stack(void);
+void set_var(char s);
 
 int sp = 0;
 double val[MAXVAL];
@@ -120,7 +122,15 @@ int getop(char s[]) {
 	while ((s[0] = c = getch()) == ' ' || c == '\t');
 	s[1] = '\0';
 	if (!isdigit(c) && c != '.')
-		return c;
+		if ((c>='A' && c<='Z') || (c>='a' && c<='z')) {
+			if (c=='s' ||  c=='e')
+				return c;
+			else {
+				return VAR;
+			}
+		}
+		else
+			return c;
 	i = 0;
 	if (isdigit(c))
 		while (isdigit(s[++i] = c = getch()));
@@ -172,4 +182,8 @@ void clear_stack(void) {
 	while(sp!=0) {
 		pop();
 	}
+}
+
+void set_var(char s) {
+	if(s)				
 }
