@@ -38,6 +38,9 @@ main() {
 			case NUMBER:
 				push(atof(s));
 				break;
+			case VAR:
+				set_var(s);
+				break;
 			case '+':
 				push(pop() + pop());
 				break;
