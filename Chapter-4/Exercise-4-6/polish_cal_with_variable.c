@@ -8,7 +8,7 @@
 #define NUMBER '0'
 #define MAXVAL 100
 #define BUFSIZE 100
-#define VAR 'A'
+#define VARIABLE 'A'
 
 int getop(char []);
 void push (double);
@@ -26,7 +26,7 @@ double val[MAXVAL];
 char buf[BUFSIZE];
 int bufp = 0;
 
-/* Reverse Pplish calculator*/
+/* Reverse Polish calculator*/
 main() {
 	int type;
 	double op2;
@@ -187,6 +187,6 @@ void clear_stack(void) {
 	}
 }
 
-void set_var(char s) {
-	if(s)				
+void set_var(char s[]) {
+	if(s)			
 }
