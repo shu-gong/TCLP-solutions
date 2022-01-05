@@ -19,12 +19,14 @@ char print_top(void);
 void duplicate_top(void);
 void swap_top_two(void);
 void clear_stack(void);
-void set_var(char s[]);
+int set_var(char s[]);
 
 int sp = 0;
 double val[MAXVAL];
 char buf[BUFSIZE];
 int bufp = 0;
+
+char variables[];
 
 /* Reverse Polish calculator*/
 main() {
@@ -39,7 +41,8 @@ main() {
 				push(atof(s));
 				break;
 			case VARIABLE:
-				set_var(s);
+				op2 = set_var(s);
+				push(op2);
 				break;
 			case '+':
 				push(pop() + pop());
@@ -128,7 +131,7 @@ int getop(char s[]) {
 		if ((c>='A' && c<='Z') || (c>='a' && c<='z')) {
 			if (c=='s' ||  c=='e') {
 				return c;
-				}
+			}
 			else {
 				i = 0;
 				while (((c = getch()) != ' ') && c != '\t') {
@@ -195,6 +198,17 @@ void clear_stack(void) {
 	}
 }
 
-void set_var(char s[]) {
+int set_var(char s[]) {
+	int idx, value;
+	idx = s[0] - 'a';
+	
 	printf("%s\n", s);
+
+	if(s[1]=='=') {
+		variables[idx] = s[2] - '0';
+		return variables[idx];
+	}	
+	else{
+		return variables[idx];
+	}
 }
