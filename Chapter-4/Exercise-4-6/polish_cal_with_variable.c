@@ -132,12 +132,13 @@ int getop(char s[]) {
 				return c;
 				}
 			else {
-				printf("Else");
 				i = 0;
-				while (((c = getch()) != ' ') || c != '\t') {
+				while (((c = getch()) != ' ') && c != '\t') {
 					s[++i] = c;
+					printf("while");
 				}
 				s[i] = '\0';
+				printf("Else");
 				if (c != EOF)
 					ungetch(c);
 				printf("%s", s);
