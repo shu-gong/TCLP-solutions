@@ -129,6 +129,8 @@ int getop(char s[]) {
 			if (c=='s' ||  c=='e')
 				return c;
 			else {
+				i = 0;
+				while(s[++i] = c = getch());
 				return VAR;
 			}
 		}
