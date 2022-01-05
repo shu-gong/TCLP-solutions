@@ -38,7 +38,7 @@ main() {
 			case NUMBER:
 				push(atof(s));
 				break;
-			case VAR:
+			case VARIABLE:
 				set_var(s);
 				break;
 			case '+':
@@ -135,7 +135,7 @@ int getop(char s[]) {
 				if (c != EOF)
 					ungetch(c);
 				printf("%s", s);
-				return VAR;
+				return VARIABLE;
 			}
 		}
 		else
