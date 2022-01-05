@@ -131,6 +131,10 @@ int getop(char s[]) {
 			else {
 				i = 0;
 				while(s[++i] = c = getch());
+				s[i] = '\0';
+				if (c != EOF)
+					ungetch(c);
+				printf("%s", s);
 				return VAR;
 			}
 		}
