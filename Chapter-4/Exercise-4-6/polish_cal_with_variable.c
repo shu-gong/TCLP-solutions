@@ -134,7 +134,7 @@ int getop(char s[]) {
 			else {
 				printf("Else");
 				i = 0;
-				while (((c = getch()) != '') || c != '\t') {
+				while (((c = getch()) != ' ') || c != '\t') {
 					s[++i] = c;
 				}
 				s[i] = '\0';
