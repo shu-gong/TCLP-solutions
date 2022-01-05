@@ -126,9 +126,13 @@ int getop(char s[]) {
 	s[1] = '\0';
 	if (!isdigit(c) && c != '.')
 		if ((c>='A' && c<='Z') || (c>='a' && c<='z')) {
-			if (c=='s' ||  c=='e')
+			printf("Entered");
+			if (c=='s' ||  c=='e') {
+				printf("if");
 				return c;
+				}
 			else {
+				printf("Else");
 				i = 0;
 				while(s[++i] = c = getch());
 				s[i] = '\0';
@@ -194,5 +198,4 @@ void clear_stack(void) {
 }
 
 void set_var(char s[]) {
-	if(s)			
 }
