@@ -133,12 +133,18 @@ int getop(char s[]) {
 				return c;
 			}
 			else {
+
 				i = 0;
+				printf("before: %c\n", c);
+				printf("current1 s: %s\n", s);
 				if ((c = getch()) == '=') 
 					s[++i] = c;
+				printf("after: %c\n", c);
+				printf("current2 s: %s\n", s);
 				if (isdigit(c))
 					while (isdigit(s[++i] = c = getch()));
 				s[i] = '\0';
+				printf("current3 s: %s\n", s);
 				if (c != EOF)
 					ungetch(c);
 				return VARIABLE;
@@ -202,13 +208,16 @@ void clear_stack(void) {
 int set_var(char s[]) {
 	int idx, value;
 	idx = s[0] - 'a';
-	printf("%s\n", s);
+	printf("s: %s\n", s);
+	printf("idx: %d\n", idx);
 
 	if(s[1]=='=') {
 		variables[idx] = s[2] - '0';
+		printf("variables: %s\n", variables);
 		return variables[idx];
 	}	
 	else{
+		printf("variables: %s\n", variables);
 		return variables[idx];
 	}
 }
