@@ -19,7 +19,7 @@ char print_top(void);
 void duplicate_top(void);
 void swap_top_two(void);
 void clear_stack(void);
-void set_var(char s);
+void set_var(char s[]);
 
 int sp = 0;
 double val[MAXVAL];
