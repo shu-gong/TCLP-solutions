@@ -20,7 +20,10 @@ void duplicate_top(void);
 void swap_top_two(void);
 void clear_stack(void);
 int set_var(char s[]);
+int elem(void);
 
+int is_first_input = 0; /* Prevents the solution from being printed firt input*/
+double var_array[VARMAX];
 int sp = 0;
 double val[MAXVAL];
 char buf[BUFSIZE];
@@ -34,15 +37,32 @@ main() {
 	double op2;
 	char s[MAXOP];
 	double base;
+	int op3, i, j;
+	char tmp[MAXOP];
+	
+	for (i=0; i<VARMAX; i++) {
+		var_array[i] = 0;
+	}
+
 
 	while((type = getop(s)) != EOF) {
+		op3 = elem();
+		if (op3 == 0) {
+			is_first_input = 1;
+		} else if (op3 > 1) {
+			is_first_input = 0;
+		}
+		i = j = 0;
 		switch (type) {
 			case NUMBER:
 				push(atof(s));
 				break;
 			case VARIABLE:
-				op2 = set_var(s);
-				push(op2);
+				for (i=2; s[i]!='\0'; i++) {
+					tmp[j++] = s[i];
+					tmp[j] = '\0';
+				}
+				var_array[s[0] - 'A'] = atof(tmp);
 				break;
 			case '+':
 				push(pop() + pop());
@@ -216,4 +236,6 @@ int set_var(char s[]) {
 		return variables[idx];
 	}
 }
-
+int elem(void) {
+	return sp;
+}
