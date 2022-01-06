@@ -123,29 +123,21 @@ double pop(void) {
 
 /* getop: get next character or numeric operand*/
 int getop(char s[]) {
-	int i, c;
-
+	int i=0, c;
 	while ((s[0] = c = getch()) == ' ' || c == '\t');
+
 	s[1] = '\0';
-	if (!isdigit(c) && c != '.')
-		if ((c>='A' && c<='Z') || (c>='a' && c<='z')) {
-			if (c=='s' ||  c=='e') {
-				return c;
-			}
-			else {
-				i = 0;
-				if ((c = getch())  == '=') 
-					s[++i] = c;
-				while (isdigit(s[++i] = c = getch()));
-				s[++i] = '\0';
-				if (c != EOF)
-					ungetch(c);
-				return VARIABLE;
-			}
-		}
-		else
+
+	if (isalpha(c) && c>= 'A' && c<= 'Z') {
+		for (; s[i]!=' '&&s[i]!='\n'; s[++i]=getch());
+		s[i] = '\0';
+		if (i > 1) {
+			return VARIABLE;
+		} else {
 			return c;
-	i = 0;
+		}
+	}
+
 	if (isdigit(c))
 		while (isdigit(s[++i] = c = getch()));
 	if (c == '.')
