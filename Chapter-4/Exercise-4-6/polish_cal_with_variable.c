@@ -134,11 +134,20 @@ int getop(char s[]) {
 		if (i > 1) {
 			return VARIABLE;
 		} else {
-			return c;
+			return c; /* When '\n' */
 		}
 	} else if (!isdigit(c) && c!='.' && c!='-') {
 		return c; /* Not a number. */
 	}
+	
+	if (c == '-') {
+		if ((c = getch()) == ' ') {
+			return c;
+		} else if (isdigit(c)) {
+			s[++i] = c;
+		}
+	}
+
 	if (isdigit(c))
 		while (isdigit(s[++i] = c = getch()));
 	if (c == '.')
