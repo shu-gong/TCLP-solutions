@@ -136,8 +136,9 @@ int getop(char s[]) {
 		} else {
 			return c;
 		}
+	} else if (!isdigit(c) && c!='.' && c!='-') {
+		return c; /* Not a number. */
 	}
-
 	if (isdigit(c))
 		while (isdigit(s[++i] = c = getch()));
 	if (c == '.')
