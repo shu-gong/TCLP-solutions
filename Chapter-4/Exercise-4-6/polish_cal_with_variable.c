@@ -137,14 +137,15 @@ int getop(char s[]) {
 				i = 0;
 				printf("before: %c\n", c);
 				printf("current1 s: %s\n", s);
-				if ((c = getch()) == '=') 
+				if ((c = getch())  == '=') 
 					s[++i] = c;
 				printf("after: %c\n", c);
+				printf("i: %d\n", i);
 				printf("current2 s: %s\n", s);
-				if (isdigit(c))
-					while (isdigit(s[++i] = c = getch()));
-				s[i] = '\0';
+				while (isdigit(s[++i] = c = getch()));
 				printf("current3 s: %s\n", s);
+				s[++i] = '\0';
+				printf("current4 s: %s\n", s);
 				if (c != EOF)
 					ungetch(c);
 				return VARIABLE;
