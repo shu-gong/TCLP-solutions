@@ -133,19 +133,11 @@ int getop(char s[]) {
 				return c;
 			}
 			else {
-
 				i = 0;
-				printf("before: %c\n", c);
-				printf("current1 s: %s\n", s);
 				if ((c = getch())  == '=') 
 					s[++i] = c;
-				printf("after: %c\n", c);
-				printf("i: %d\n", i);
-				printf("current2 s: %s\n", s);
 				while (isdigit(s[++i] = c = getch()));
-				printf("current3 s: %s\n", s);
 				s[++i] = '\0';
-				printf("current4 s: %s\n", s);
 				if (c != EOF)
 					ungetch(c);
 				return VARIABLE;
@@ -214,7 +206,7 @@ int set_var(char s[]) {
 
 	if(s[1]=='=') {
 		variables[idx] = s[2] - '0';
-		printf("variables: %s\n", variables);
+		printf("variables: %d\n", variables[idx]);
 		return variables[idx];
 	}	
 	else{
